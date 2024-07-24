@@ -1,5 +1,5 @@
 //
-//  BrandListView.swift
+//  BrandImageView.swift
 //  ImageCarouselSwiftUI
 //
 //  Created by Neosoft on 22/07/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BrandListView: View {
+struct BrandImageView: View {
     @Binding var selectedIndex: Int
     let brands: [CarBrand]
     
@@ -17,7 +17,11 @@ struct BrandListView: View {
                 Image(brands[index].imageUrl ?? "")
                     .resizable()
                     .scaledToFit()
+                    .padding(.top, 10)
+                    .padding(.bottom, 30)
                     .tag(index)
+                    .frame(width: 200, height: 200)
+                        .aspectRatio(contentMode: .fit)
             }
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))

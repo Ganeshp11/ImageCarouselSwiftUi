@@ -1,8 +1,8 @@
 //
-//  FileReader.swift
-//  FourWheelManufacturersDemo
+//  ImageCarouselSwiftUIApp.swift
+//  ImageCarouselSwiftUI
 //
-//  Created by Neosoft on 20/07/24.
+//  Created by Neosoft on 22/07/24.
 //
 
 import Foundation
@@ -13,7 +13,7 @@ class FileReader {
                  do {
                      let data = try Data(contentsOf: url)
                      let decoder = JSONDecoder()
-                     let decodedData = try decoder.decode(T.self, from: data)
+                     let decodedData = try? decoder.decode(T.self, from: data)
                      return decodedData
                  } catch {
                      print("Failed to load or parse JSON: \(error)")

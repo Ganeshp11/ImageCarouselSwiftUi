@@ -8,17 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = CarBrandsViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            VStack(spacing: 20) {
+                if !viewModel.brands.isEmpty {
+                    ScrollView {
+                        BrandImageView(selectedIndex: $viewModel.selectedBrandIndex, brands: viewModel.brands)
+                            .onChange(of: viewModel.selectedBrandIndex) {
+                                viewModel.searchText = ""
+                            }
+                        CarModelsTableView(searchText: $viewModel.searchText, models: viewModel.filteredCarModels)
+                    }
+                } else {
+                    Text("No brands found")
+                                .frame(minHeight: 100)
+                }
+            }
+            .padding(.leading, 5)
+            .padding(.trailing, 5)
+            .background(Image("BackGround"))
         }
-        .padding()
-    }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
