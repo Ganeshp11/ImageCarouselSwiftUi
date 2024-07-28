@@ -6,106 +6,25 @@
 //
 
 import Foundation
-//
-//class CarBrandViewModel {
-//    var carBrands: [CarBrand] = []
-//    var filteredCarModels: [CarModel] = []
-//    var selectedCarBrand: CarBrand?
-//    var searchText: String = "" {
-//        didSet {
-//            filterModels()
-//        }
-//    }
-//    
-//    init() {
-//        loadCarBrands()
-//        filterModels()
-//    }
-//    
-//    private func loadCarBrands() {
-//        if let carBrandResponse: CarBrandResponse = FileReader.decode(fromFile: "CarBrands", type: CarBrandResponse.self) {
-//            carBrands = carBrandResponse.carBrands ?? []
-//            selectedCarBrand = carBrands.first
-//            filteredCarModels = selectedCarBrand?.models ?? []
-//        }
-//    }
-//    func filterModels() {
-//      if let selectedCarBrand = selectedCarBrand, let models = selectedCarBrand.models {
-//        if searchText.isEmpty {
-//          filteredCarModels = models
-//        } else {
-//          filteredCarModels = models.filter { model in
-//            model.modelName?.lowercased().contains(searchText.lowercased()) ?? false
-//          }
-//        }
-//      } else {
-//        filteredCarModels = []
-//      }
-//    }
-// 
-//    func getCarBrand(at index: Int) -> CarBrand? {
-//        guard index >= 0 && index < carBrands.count else {
-//            return nil
-//        }
-//        return carBrands[index]
-//    }
-//    
-//    func selectCarBrand(at index: Int) {
-//        selectedCarBrand = getCarBrand(at: index)
-//        filterModels()
-//    }
-//}
-
-//class CarBrandsViewModel: ObservableObject {
-//    @Published var carBrands: [CarBrand] = []
-//    @Published var selectedBrandIndex: Int = 0
-//
-//    @Published var searchText: String = ""
-//    @Published var selectedBrand: CarBrand? = nil
-//
-//    var filteredCarModels: [CarModel] {
-//        if let selectedBrand = selectedBrand, let models = selectedBrand.models {
-//            if searchText.isEmpty {
-//                return selectedBrand.models ?? []
-//            } else {
-//                
-//                return models.filter { model in
-//                    model.modelName?.lowercased().contains(searchText.lowercased()) ?? false
-//                    
-//                }
-//            }       
-//        } else {
-//            return []
-//        }
-//       
-//    }
-//
-//    init() {
-//        loadCarBrands()
-//    }
-//
-//    private func loadCarBrand() {
-//        if let url = Bundle.main.url(forResource: "carBrands", withExtension: "json"),
-//           let data = try? Data(contentsOf: url),
-//           let carBrands = try? JSONDecoder().decode([CarBrand].self, from: data) {
-//            self.selectedBrand = carBrands.first
-//        }
-//    }
-//    private func loadCarBrands() {
-//        if let carBrandResponse: CarBrandResponse = FileReader.decode(fromFile: "CarBrands", type: CarBrandResponse.self) {
-//            carBrands = carBrandResponse.carBrands ?? []
-//            self.selectedBrand = carBrands.first
-//
-////            filteredCarModels = selectedCarBrand?.models ?? []
-//        }
-//    }
-//}
 
 class CarBrandsViewModel: ObservableObject {
     @Published var brands: [CarBrand] = []
-    @Published var selectedBrandIndex: Int = 0
+    @Published var selectedBrandIndex: Int = 0 {
+        didSet {
+            calculateStatistics()
+        }
+    }
     @Published var searchText: String = ""
+    private var fileReader: FileReader
+    @Published var modelCount: [String: Int] = [:]
+    @Published var characterCounts: [CharacterCount] = []
+    @Published var errorMessage: String?
     
+    init(fileReader: FileReader = FileReader()) {
+        self.fileReader = fileReader
+        self.loadCarBrands()
+        calculateStatistics()
+    }
     var selectedBrand: CarBrand? {
         return brands.isEmpty ? nil : brands[selectedBrandIndex]
     }
@@ -115,26 +34,55 @@ class CarBrandsViewModel: ObservableObject {
             if searchText.isEmpty {
                 return selectedBrand.models ?? []
             } else {
-                
                 return models.filter { model in
                     model.modelName?.lowercased().contains(searchText.lowercased()) ?? false
-                    
                 }
             }
         } else {
             return []
         }
-       
+        
     }
-    
-    init() {
-        self.loadCarBrands()
-    }
-    
     private func loadCarBrands() {
-        if let carBrandResponse: CarBrandResponse = FileReader.decode(fromFile: "CarBrands", type: CarBrandResponse.self) {
-            brands = carBrandResponse.carBrands ?? []
+        do {
+            let response:CarBrandResponse =  try fileReader.decode(fromFile: "CarBrands", type: "json")
+            brands = response.carBrands ?? []
+        } catch (let error) {
+            handleError(error.localizedDescription)
         }
     }
-
+    
+    func calculateStatistics() {
+        var modelCounts: [String: Int] = [:]
+        var characterCounts: [Character: Int] = [:]
+        
+        modelCounts[selectedBrand?.brandName ?? ""] = selectedBrand?.models?.count ?? 0
+        
+        let allowedCharacters = CharacterSet.letters.union(.decimalDigits)
+        
+        for car in selectedBrand?.models ?? [] {
+            for char in car.modelName?.lowercased() ?? "" {
+                if let scalar = char.unicodeScalars.first, allowedCharacters.contains(scalar) {
+                    characterCounts[char, default: 0] += 1
+                }
+            }
+        }
+        
+        let sortedCharacterCounts = characterCounts.sorted { (first, second) -> Bool in
+            if first.value == second.value {
+                return first.key < second.key
+            }
+            return first.value > second.value
+        }
+            .map { CharacterCount(character: $0.key, count: $0.value) }
+            .prefix(3)
+        
+        self.modelCount = modelCounts
+        self.characterCounts = Array(sortedCharacterCounts)
+    }
+    private func handleError(_ error: String) {
+        DispatchQueue.main.async {
+            self.errorMessage = error
+        }
+    }
 }

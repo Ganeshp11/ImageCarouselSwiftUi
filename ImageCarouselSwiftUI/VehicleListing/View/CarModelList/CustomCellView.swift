@@ -16,35 +16,36 @@ struct CustomCellView: View {
         HStack {
             Image(image)
                 .resizable()
-                .frame(width: 90, height: 100)
-                .aspectRatio(contentMode: .fill)
-                .padding(.leading)
-            VStack(alignment: .leading) {
+                .scaledToFill()
+                .frame(width: 100)
+                .padding(.horizontal, 10)
+            VStack(alignment: .leading, spacing: 2) {
                 Text(title)
-                    .font(.system(size: 18,weight: .bold))
+                    .font(.system(size: 20,weight: .bold))
                     .padding(.vertical, 2.5)
-                    .foregroundColor(Color.white)
-                Text("Price: Rs. \(subtitle) Lakh")
+                    .foregroundColor(CustomColor.fontColor)
+                Text("Rs. \(subtitle) Lakh")
                     .font(.system(size: 18,weight: .medium))                
                     .padding(.vertical, 2.5)
-                    .foregroundColor(Color("LightGrays"))
+                    .foregroundColor(CustomColor.lightFontColor)
             }
-            .padding()
+            .padding(.horizontal, 5)
             Spacer()
         }
-        .background(Color("CellColor"))
-        .border(Color("LightGrays"), width: 0.5)
+        .frame(maxWidth: .infinity)
+        .frame(maxHeight: 100)
+        .background(Color(CustomColor.cellColor))
+        .border((CustomColor.borderColor), width: 0.5)
         .cornerRadius(10)
         .overlay(
             RoundedRectangle(cornerRadius: 10)
-                .inset(by: 0.5) // inset value should be same as lineWidth in .stroke
-                .stroke(Color("LightGrays"), lineWidth: 0.5)
+                .inset(by: 0.5)
+                .stroke((CustomColor.borderColor), lineWidth: 0.5)
         )
-        .padding(.horizontal, 1)
-        .frame(maxWidth: .infinity)
-        .frame(height: 100)
+        .padding(.horizontal, 10)
         .padding(.vertical, 5)
-       
+        .shadow(color: CustomColor.cellColor,radius: 4)
+    
     }
 }
 

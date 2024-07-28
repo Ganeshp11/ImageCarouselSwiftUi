@@ -12,29 +12,38 @@ struct CarModelsTableView: View {
     let models: [CarModel]
     
     var body: some View {
-        List {
+        LazyVStack(alignment: .leading, spacing: 5, pinnedViews: [.sectionHeaders]) {
             Section(header: SearchBarView(searchText: $searchText)) {
-                ForEach(models) { model in
-                    CustomCellView(title: model.modelName ?? "", subtitle: model.price ?? "", image: model.imageUrl ?? "")
-                        .listRowInsets(EdgeInsets())
-                        .listRowBackground(Color.clear)
-                        .background(Color.clear)
+                if models.isEmpty {
+                    Spacer(minLength: 50)
+                    Text("No Match Found")
+                        .frame(maxWidth: .infinity)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(CustomColor.cellColor)
+                        .font(.system(size: 22, weight: .bold))
+                } else {
+                    ForEach(models) { model in
+                        CustomCellView(title: model.modelName ?? "", subtitle: model.price ?? "", image: model.imageUrl ?? "")
+                            .listRowInsets(EdgeInsets())
+                            .listRowBackground(Color.clear)
+                            .background(Color.clear)
+                    }
                 }
             }
+            .padding(.horizontal, 10)
         }
-        .padding(.top, 2)
-        .listStyle(PlainListStyle())
+        .padding(.bottom, 10)
+        .padding(.top, 5)
         .onAppear {
-                   UITableView.appearance().separatorStyle = .none
+            UITableView.appearance().separatorStyle = .none
         }
-        .background(Color(.clear))
     }
 }
 
 struct CarModelsTableView_Previews: PreviewProvider {
     static var previews: some View {
-        CarModelsTableView(searchText: .constant(""), models: [
-            CarModel(id: "1", modelName: "Nexon", imageUrl: "Nexon", price: "11.80")
-        ])
+        let carModel = CarModel(id: "1", modelName: "Nexon", imageUrl: "Nexon", price: "11.80")
+        CarModelsTableView(searchText: .constant(""), models: [carModel])
+        
     }
 }

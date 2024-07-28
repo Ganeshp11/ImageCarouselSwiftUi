@@ -9,16 +9,40 @@ import SwiftUI
 
 struct SearchBarView: View {
     @Binding var searchText: String
-
+    @State private var isEditing = false
+    
     var body: some View {
         HStack {
-            TextField("Search car here", text: $searchText)
-                .padding(5)
-                .background(Color(.systemGray6))
+            HStack {
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(CustomColor.lightFontColor)
+                        .padding(.leading, 5)
+                    TextField("Search car here", text: $searchText)
+                        .foregroundColor(CustomColor.lightFontColor)
+                        .padding(5)
+                        .onTapGesture {
+                            self.isEditing = true
+                        }
+                }
+                .background(Color(CustomColor.cellColor))
                 .cornerRadius(8)
-                .padding(.horizontal, 1)
-                .shadow(color: .black, radius: 4, x: 0, y: 2)
+                if isEditing {
+                    Button(action: {
+                        self.isEditing = false
+                        self.searchText = ""
+                        // Dismiss keyboard
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    }) {
+                        Text("Cancel")
+                            .fontWeight(.semibold)
+                            .foregroundColor(CustomColor.cellColor)
+                    }
+                    .padding(.trailing, 10)
+                }
+            }
+            .padding(10)
         }
-        .frame(height: 44)
     }
 }
+

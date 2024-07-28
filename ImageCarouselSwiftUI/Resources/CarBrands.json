@@ -119,25 +119,25 @@
                     "id": "1",
                     "modelName": "XUV 300",
                     "imageUrl": "XUV300",
-                    "price": ""
+                    "price": "7.99"
                 },
                 {
                     "id": "2",
                     "modelName": "XUV 700",
                     "imageUrl": "XUV700",
-                    "price": ""
+                    "price": "13.99"
                 },
                 {
                     "id": "3",
                     "modelName": "Scorpio",
                     "imageUrl": "Scorpio",
-                    "price": ""
+                    "price": "13.62"
                 },
                 {
                     "id": "4",
                     "modelName": "Thar",
                     "imageUrl": "Thar",
-                    "price": ""
+                    "price": "14.10"
                 }
             ]
         },
@@ -151,25 +151,25 @@
                     "id": "1",
                     "modelName": "Corolla",
                     "imageUrl": "Corrola",
-                    "price": ""
+                    "price": "14.10"
                 },
                 {
                     "id": "2",
                     "modelName": "Camry",
                     "imageUrl": "Camry",
-                    "price": ""
+                    "price": "46.17"
                 },
                 {
                     "id": "3",
                     "modelName": "Innova",
                     "imageUrl": "Innova",
-                    "price": ""
+                    "price": "28.10"
                 },
                 {
                     "id": "4",
                     "modelName": "Urban Cruiser",
                     "imageUrl": "Urban Cruiser",
-                    "price": ""
+                    "price": "13.99"
                 }
             ]
         },
@@ -183,19 +183,19 @@
                     "id": "1",
                     "modelName": "City",
                     "imageUrl": "City",
-                    "price": ""
+                    "price": "14.99"
                 },
                 {
                     "id": "2",
                     "modelName": "Amaze",
                     "imageUrl": "Amaze",
-                    "price": ""
+                    "price": "8.89"
                 },
                 {
                     "id": "3",
                     "modelName": "CR-V",
                     "imageUrl": "CR-V",
-                    "price": ""
+                    "price": "17.98"
                 }
             ]
         }
