@@ -25,7 +25,7 @@ struct SearchBarView: View {
                             self.isEditing = true
                         }
                 }
-                .background(Color(CustomColor.cellColor))
+                .background(CustomColor.cellColor)
                 .cornerRadius(8)
                 if isEditing {
                     Button(action: {

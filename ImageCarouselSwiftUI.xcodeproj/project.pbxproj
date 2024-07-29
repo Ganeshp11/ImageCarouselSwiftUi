@@ -15,7 +15,6 @@
 		9261B2432C4E65300029141C /* ImageCarouselSwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261B2422C4E65300029141C /* ImageCarouselSwiftUIUITests.swift */; };
 		9261B2452C4E65300029141C /* ImageCarouselSwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261B2442C4E65300029141C /* ImageCarouselSwiftUIUITestsLaunchTests.swift */; };
 		92BCFBCA2C565549003D64EC /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCFBC92C565549003D64EC /* LaunchScreenView.swift */; };
-		92BCFBCC2C565B67003D64EC /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92BCFBCB2C565B67003D64EC /* info.plist */; };
 		92E1BE792C4E686C003382DA /* CarBrands.json in Resources */ = {isa = PBXBuildFile; fileRef = 92E1BE782C4E686C003382DA /* CarBrands.json */; };
 		92E1BE7E2C4E69A6003382DA /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E1BE7D2C4E69A6003382DA /* FileReader.swift */; };
 		92E1BE842C4E6C12003382DA /* CarBrandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E1BE832C4E6C12003382DA /* CarBrandModel.swift */; };
@@ -25,10 +24,10 @@
 		92E1BE8E2C4F87E7003382DA /* CarModelsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E1BE8D2C4F87E7003382DA /* CarModelsTableView.swift */; };
 		92E1BE922C4FB5CA003382DA /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E1BE912C4FB5CA003382DA /* ColorExtensions.swift */; };
 		92E1BE942C4FC2F8003382DA /* CustomCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E1BE932C4FC2F8003382DA /* CustomCellView.swift */; };
-		92E1BE9F2C5143BB003382DA /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E1BE9E2C5143BB003382DA /* StatisticsView.swift */; };
-		92E1BEA12C5149C5003382DA /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E1BEA02C5149C5003382DA /* ButtonView.swift */; };
 		92E1BEB52C5262EB003382DA /* FileReaderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E1BEB42C5262EB003382DA /* FileReaderError.swift */; };
-		92E1BEB82C527BBC003382DA /* StatisticsSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E1BEB72C527BBC003382DA /* StatisticsSheetView.swift */; };
+		92E39AA72C57813800F0012F /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E39AA62C57813800F0012F /* StatisticsView.swift */; };
+		92E39AA92C57814700F0012F /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E39AA82C57814700F0012F /* ButtonView.swift */; };
+		92E39AAB2C57823E00F0012F /* StatisticsSheetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E39AAA2C57823E00F0012F /* StatisticsSheetViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +59,6 @@
 		9261B2422C4E65300029141C /* ImageCarouselSwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCarouselSwiftUIUITests.swift; sourceTree = "<group>"; };
 		9261B2442C4E65300029141C /* ImageCarouselSwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCarouselSwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		92BCFBC92C565549003D64EC /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
-		92BCFBCB2C565B67003D64EC /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
-		92BCFBCD2C567A52003D64EC /* StatisticsSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsSheetView.swift; sourceTree = "<group>"; };
 		92E1BE782C4E686C003382DA /* CarBrands.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CarBrands.json; sourceTree = "<group>"; };
 		92E1BE7D2C4E69A6003382DA /* FileReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileReader.swift; sourceTree = "<group>"; };
 		92E1BE832C4E6C12003382DA /* CarBrandModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarBrandModel.swift; sourceTree = "<group>"; };
@@ -71,10 +68,10 @@
 		92E1BE8D2C4F87E7003382DA /* CarModelsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelsTableView.swift; sourceTree = "<group>"; };
 		92E1BE912C4FB5CA003382DA /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		92E1BE932C4FC2F8003382DA /* CustomCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellView.swift; sourceTree = "<group>"; };
-		92E1BE9E2C5143BB003382DA /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatisticsView.swift; path = ../../../../../../../.ssh/StatisticsView.swift; sourceTree = "<group>"; };
-		92E1BEA02C5149C5003382DA /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ButtonView.swift; path = ../../../../../../../.ssh/ButtonView.swift; sourceTree = "<group>"; };
 		92E1BEB42C5262EB003382DA /* FileReaderError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileReaderError.swift; sourceTree = "<group>"; };
-		92E1BEB72C527BBC003382DA /* StatisticsSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatisticsSheetView.swift; path = ../../../../../../StatisticsSheetView.swift; sourceTree = "<group>"; };
+		92E39AA62C57813800F0012F /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		92E39AA82C57814700F0012F /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		92E39AAA2C57823E00F0012F /* StatisticsSheetViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsSheetViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +127,6 @@
 				92E1BE8F2C4FB5A6003382DA /* Utilities */,
 				9261B2272C4E652E0029141C /* ImageCarouselSwiftUIApp.swift */,
 				9261B22B2C4E65300029141C /* Assets.xcassets */,
-				92BCFBCB2C565B67003D64EC /* info.plist */,
 				9261B22D2C4E65300029141C /* Preview Content */,
 			);
 			path = ImageCarouselSwiftUI;
@@ -262,20 +258,10 @@
 		92E1BE9C2C51436C003382DA /* BottomSheet */ = {
 			isa = PBXGroup;
 			children = (
-				92E1BE9D2C51438D003382DA /* StatisticsView */,
-				92BCFBCD2C567A52003D64EC /* StatisticsSheetView.swift */,
+				92E39AA52C57812100F0012F /* Statistic */,
+				92E39AAA2C57823E00F0012F /* StatisticsSheetViews.swift */,
 			);
 			path = BottomSheet;
-			sourceTree = "<group>";
-		};
-		92E1BE9D2C51438D003382DA /* StatisticsView */ = {
-			isa = PBXGroup;
-			children = (
-				92E1BE9E2C5143BB003382DA /* StatisticsView.swift */,
-				92E1BEA02C5149C5003382DA /* ButtonView.swift */,
-				92E1BEB72C527BBC003382DA /* StatisticsSheetView.swift */,
-			);
-			path = StatisticsView;
 			sourceTree = "<group>";
 		};
 		92E1BEB62C5262F5003382DA /* Constants */ = {
@@ -284,6 +270,15 @@
 				92E1BEB42C5262EB003382DA /* FileReaderError.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		92E39AA52C57812100F0012F /* Statistic */ = {
+			isa = PBXGroup;
+			children = (
+				92E39AA62C57813800F0012F /* StatisticsView.swift */,
+				92E39AA82C57814700F0012F /* ButtonView.swift */,
+			);
+			path = Statistic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,7 +385,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92BCFBCC2C565B67003D64EC /* info.plist in Resources */,
 				9261B22F2C4E65300029141C /* Preview Assets.xcassets in Resources */,
 				9261B22C2C4E65300029141C /* Assets.xcassets in Resources */,
 				92E1BE792C4E686C003382DA /* CarBrands.json in Resources */,
@@ -420,17 +414,17 @@
 			files = (
 				92E1BE8E2C4F87E7003382DA /* CarModelsTableView.swift in Sources */,
 				92E1BE842C4E6C12003382DA /* CarBrandModel.swift in Sources */,
-				92E1BEA12C5149C5003382DA /* ButtonView.swift in Sources */,
 				92E1BE7E2C4E69A6003382DA /* FileReader.swift in Sources */,
+				92E39AA92C57814700F0012F /* ButtonView.swift in Sources */,
 				92E1BE942C4FC2F8003382DA /* CustomCellView.swift in Sources */,
+				92E39AA72C57813800F0012F /* StatisticsView.swift in Sources */,
+				92E39AAB2C57823E00F0012F /* StatisticsSheetViews.swift in Sources */,
 				92BCFBCA2C565549003D64EC /* LaunchScreenView.swift in Sources */,
-				92E1BEB82C527BBC003382DA /* StatisticsSheetView.swift in Sources */,
 				92E1BEB52C5262EB003382DA /* FileReaderError.swift in Sources */,
 				92E1BE862C4E6C1E003382DA /* CarBrandViewModel.swift in Sources */,
 				92E1BE8C2C4F80C5003382DA /* SearchBarView.swift in Sources */,
 				92E1BE922C4FB5CA003382DA /* ColorExtensions.swift in Sources */,
 				9261B22A2C4E652E0029141C /* ContentView.swift in Sources */,
-				92E1BE9F2C5143BB003382DA /* StatisticsView.swift in Sources */,
 				92E1BE8A2C4E7595003382DA /* BrandImageView.swift in Sources */,
 				9261B2282C4E652E0029141C /* ImageCarouselSwiftUIApp.swift in Sources */,
 			);
@@ -503,6 +497,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -566,6 +561,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -606,6 +602,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = UILaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -637,6 +634,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = UILaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
