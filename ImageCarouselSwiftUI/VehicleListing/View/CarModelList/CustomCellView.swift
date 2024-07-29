@@ -17,15 +17,15 @@ struct CustomCellView: View {
             Image(image)
                 .resizable()
                 .scaledToFill()
-                .frame(width: 100)
+                .frame(width: SizeConstants.carImageWidth)
                 .padding(.horizontal, 10)
             VStack(alignment: .leading, spacing: 2) {
                 Text(title)
-                    .font(.system(size: 20,weight: .bold))
+                    .font(FontSizeClass.extraLarge)
                     .padding(.vertical, 2.5)
                     .foregroundColor(CustomColor.fontColor)
-                Text("Rs. \(subtitle) Lakh")
-                    .font(.system(size: 18,weight: .medium))                
+                Text(Strings.rs + subtitle + Strings.lakh)
+                    .font(FontSizeClass.medium)
                     .padding(.vertical, 2.5)
                     .foregroundColor(CustomColor.lightFontColor)
             }
@@ -33,12 +33,12 @@ struct CustomCellView: View {
             Spacer()
         }
         .frame(maxWidth: .infinity)
-        .frame(maxHeight: 100)
+        .frame(maxHeight: SizeConstants.customCellHeight)
         .background(Color(CustomColor.cellColor))
         .border((CustomColor.borderColor), width: 0.5)
-        .cornerRadius(10)
+        .cornerRadius(SizeConstants.radius)
         .overlay(
-            RoundedRectangle(cornerRadius: 10)
+            RoundedRectangle(cornerRadius: SizeConstants.radius)
                 .inset(by: 0.5)
                 .stroke((CustomColor.borderColor), lineWidth: 0.5)
         )
@@ -51,7 +51,7 @@ struct CustomCellView: View {
 
 struct CustomCellView_Preview: PreviewProvider {
     static var previews: some View {
-        CustomCellView(title: "Nexon", subtitle: "10", image: "Nexon")
+        CustomCellView(title: Strings.carName, subtitle: Strings.price, image: Strings.imageName)
 
     }
 }

@@ -16,11 +16,11 @@ struct CarModelsTableView: View {
             Section(header: SearchBarView(searchText: $searchText)) {
                 if models.isEmpty {
                     Spacer(minLength: 50)
-                    Text("No Match Found")
+                    Text(Strings.noMatch)
                         .frame(maxWidth: .infinity)
                         .multilineTextAlignment(.center)
                         .foregroundColor(CustomColor.cellColor)
-                        .font(.system(size: 22, weight: .bold))
+                        .font(FontSizeClass.largeBold)
                 } else {
                     ForEach(models) { model in
                         CustomCellView(title: model.modelName ?? "", subtitle: model.price ?? "", image: model.imageUrl ?? "")
@@ -42,7 +42,7 @@ struct CarModelsTableView: View {
 
 struct CarModelsTableView_Previews: PreviewProvider {
     static var previews: some View {
-        let carModel = CarModel(id: "1", modelName: "Nexon", imageUrl: "Nexon", price: "11.80")
+        let carModel = CarModel(id: "1", modelName: Strings.carName, imageUrl: Strings.imageName, price: Strings.imageName)
         CarModelsTableView(searchText: .constant(""), models: [carModel])
         
     }

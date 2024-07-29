@@ -16,13 +16,11 @@ struct StatisticsView: View {
             HStack() {
                 Spacer()
                 VStack {
-//                    Spacer()
                     VStack {
                         ForEach(modelCount.sorted(by: >), id: \.key) { key, value in
-                            Text("\(key): \(value) Models")
-                                .font(.headline)
+                            Text("\(key): \(value) " + Strings.models)
                                 .foregroundColor(CustomColor.fontColor)
-                                .font(.system(size: 20, weight: .semibold))
+                                .font(FontSizeClass.extraLarge)
                                 .padding(.vertical, 10)
                         }
                         ForEach(characterCounts) { characterCount in
@@ -30,11 +28,11 @@ struct StatisticsView: View {
                                 Spacer()
                                 Text("\(String(characterCount.character ?? " ")):")
                                     .foregroundColor(CustomColor.fontColor)
-                                    .font(.system(size: 20, weight: .semibold))
+                                    .font(FontSizeClass.large)
                                     .padding(.vertical, 10)
                                 Text("\(characterCount.count ?? 0)")
                                     .foregroundColor(CustomColor.fontColor)
-                                    .font(.system(size: 20, weight: .semibold))
+                                    .font(FontSizeClass.large)
                                     .padding(.vertical, 10)
                                 Spacer()
                             }
@@ -43,12 +41,12 @@ struct StatisticsView: View {
                     }
                     .padding(.vertical, 20)
                     .background(CustomColor.cellColor)
-                    .border((CustomColor.borderColor), width: 0.5)
-                    .cornerRadius(10)
+                    .border((CustomColor.borderColor), width: SizeConstants.borderWidth)
+                    .cornerRadius(SizeConstants.radius)
                     .overlay(
-                        RoundedRectangle(cornerRadius: 10)
+                        RoundedRectangle(cornerRadius: SizeConstants.radius)
                             .inset(by: 0.5)
-                            .stroke((CustomColor.borderColor), lineWidth: 0.5)
+                            .stroke((CustomColor.borderColor), lineWidth: SizeConstants.borderWidth)
                     )
                     Spacer()
                 }

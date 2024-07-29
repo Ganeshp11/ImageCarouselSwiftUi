@@ -23,14 +23,16 @@ struct ContentView: View {
                                 }
                             CarModelsTableView(searchText: $viewModel.searchText, models: viewModel.filteredCarModels)
                         } else {
-                            Text("No brands found")
+                            Text(Strings.noBrand)
                                 .frame(minHeight: 100)
                         }
                     }
                     .padding(2)
                 }
                 .safeAreaPadding(EdgeInsets(.zero))
-                ButtonView(showStatistics: $showStatistics)
+                ButtonView(showStatistics: $showStatistics, startCalculateStatistics: {
+                    viewModel.calculateStatistics()
+                })
                     .sheet(isPresented: $showStatistics) {
                         StatisticsSheetView(modelCounts: $viewModel.modelCount, characterCounts: $viewModel.characterCounts)
                             .background(Color(CustomColor.background))

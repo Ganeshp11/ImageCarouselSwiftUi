@@ -9,22 +9,28 @@ import Foundation
 
 class CarBrandsViewModel: ObservableObject {
     @Published var brands: [CarBrand] = []
-    @Published var selectedBrandIndex: Int = 0 {
-        didSet {
-            calculateStatistics()
-        }
-    }
+    @Published var selectedBrandIndex: Int = 0
     @Published var searchText: String = ""
-    private var fileReader: FileReader
     @Published var modelCount: [String: Int] = [:]
     @Published var characterCounts: [CharacterCount] = []
     @Published var errorMessage: String?
     
+    private var fileReader: FileReader
+    
     init(fileReader: FileReader = FileReader()) {
         self.fileReader = fileReader
         self.loadCarBrands()
-        calculateStatistics()
+//        calculateStatistics()
     }
+    private func loadCarBrands() {
+        do {
+            let response:CarBrandResponse =  try fileReader.decode(fromFile: Strings.fileName, type: Strings.type)
+            brands = response.carBrands ?? []
+        } catch (let error) {
+            handleError(error.localizedDescription)
+        }
+    }
+    
     var selectedBrand: CarBrand? {
         return brands.isEmpty ? nil : brands[selectedBrandIndex]
     }
@@ -43,14 +49,7 @@ class CarBrandsViewModel: ObservableObject {
         }
         
     }
-    private func loadCarBrands() {
-        do {
-            let response:CarBrandResponse =  try fileReader.decode(fromFile: "CarBrands", type: "json")
-            brands = response.carBrands ?? []
-        } catch (let error) {
-            handleError(error.localizedDescription)
-        }
-    }
+
     
     func calculateStatistics() {
         var modelCounts: [String: Int] = [:]

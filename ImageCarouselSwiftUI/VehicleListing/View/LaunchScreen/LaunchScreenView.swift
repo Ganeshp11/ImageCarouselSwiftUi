@@ -12,7 +12,7 @@ struct LaunchScreenView: View {
         VStack {
             Image("CarGo")
                 .resizable()
-                .frame(width: 300, height: 350)
+                .frame(width: SizeConstants.launchImageWidth, height: SizeConstants.launchImageHeight)
                 .aspectRatio(contentMode: .fit)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

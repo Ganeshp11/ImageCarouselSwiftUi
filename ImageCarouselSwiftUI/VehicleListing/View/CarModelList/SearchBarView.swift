@@ -18,15 +18,15 @@ struct SearchBarView: View {
                     Image(systemName: "magnifyingglass")
                         .foregroundColor(CustomColor.lightFontColor)
                         .padding(.leading, 5)
-                    TextField("Search car here", text: $searchText)
+                    TextField(Strings.searchPlaceholder, text: $searchText)
                         .foregroundColor(CustomColor.lightFontColor)
                         .padding(5)
                         .onTapGesture {
                             self.isEditing = true
                         }
                 }
-                .background(CustomColor.cellColor)
-                .cornerRadius(8)
+                .background(.white)
+                .cornerRadius(SizeConstants.radius)
                 if isEditing {
                     Button(action: {
                         self.isEditing = false
@@ -34,8 +34,8 @@ struct SearchBarView: View {
                         // Dismiss keyboard
                         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                     }) {
-                        Text("Cancel")
-                            .fontWeight(.semibold)
+                        Text(Strings.cancel)
+                            .font(FontSizeClass.medium)
                             .foregroundColor(CustomColor.cellColor)
                     }
                     .padding(.trailing, 10)

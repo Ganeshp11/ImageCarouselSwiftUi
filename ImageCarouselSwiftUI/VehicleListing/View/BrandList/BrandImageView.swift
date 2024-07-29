@@ -20,12 +20,12 @@ struct BrandImageView: View {
                     .padding(.top, 10)
                     .padding(.bottom, 30)
                     .tag(index)
-                    .frame(width: 200, height: 200)
+                    .frame(width: SizeConstants.brandImageWeight, height: SizeConstants.brandImageWeight)
                         .aspectRatio(contentMode: .fit)
             }
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-        .frame(height: 200)
+        .frame(height: SizeConstants.brandFramHeight)
     }
 }
 
